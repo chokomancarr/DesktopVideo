@@ -42,6 +42,8 @@
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.restoreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.browseButton = new System.Windows.Forms.Button();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -91,7 +93,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 83);
+            this.textBox1.Location = new System.Drawing.Point(12, 91);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(276, 20);
             this.textBox1.TabIndex = 4;
@@ -160,11 +162,27 @@
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            this.openFileDialog1.Filter = "Media files|*.mp4;*.wmv;*.avi;*.mpeg";
+            // 
+            // browseButton
+            // 
+            this.browseButton.Location = new System.Drawing.Point(181, 62);
+            this.browseButton.Name = "browseButton";
+            this.browseButton.Size = new System.Drawing.Size(107, 23);
+            this.browseButton.TabIndex = 8;
+            this.browseButton.Text = "browse";
+            this.browseButton.UseVisualStyleBackColor = true;
+            this.browseButton.Click += new System.EventHandler(this.browseButton_Click);
+            // 
             // DesktopVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 261);
+            this.Controls.Add(this.browseButton);
             this.Controls.Add(this.ytDesc);
             this.Controls.Add(this.localDesc);
             this.Controls.Add(this.label1);
@@ -201,6 +219,8 @@
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem restoreToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button browseButton;
 
     }
 }

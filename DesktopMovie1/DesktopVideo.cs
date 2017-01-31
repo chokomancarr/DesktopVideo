@@ -60,6 +60,7 @@ namespace DesktopMovie1
                 localDesc.Visible = true;
                 ytDesc.Visible = false;
             }
+            browseButton.Enabled = !isWeb;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -127,5 +128,15 @@ namespace DesktopMovie1
         }
 
         private void DesktopVideo_Load(object sender, EventArgs e) { }
+
+        private void browseButton_Click(object sender, EventArgs e)
+        {
+            DialogResult result = openFileDialog1.ShowDialog(); // Show the dialog.
+            if (result == DialogResult.OK) // Test result.
+            {
+                textBox1.Text = openFileDialog1.FileName;
+                textBox1.ForeColor = Color.Black;
+            }
+        }
     }
 }
