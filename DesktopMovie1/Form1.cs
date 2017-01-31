@@ -110,6 +110,7 @@ namespace DesktopMovie1
             mediaPlayer.Visible = true;
             mediaPlayer.URL = path;
             mediaPlayer.Ctlcontrols.play();
+            mediaPlayer.settings.setMode("loop", true);
         }
 
         public void StopLocalVideo()
@@ -124,7 +125,7 @@ namespace DesktopMovie1
             StopLocalVideo();
             webBrowser.Visible = true;
             mediaPlayer.Visible = false;
-            webBrowser.Navigate(@"https://www.youtube.com/v/" + id + @"?%20controls=0%20&loop=1%20&autoplay=1&rel=0&playlist=" + id);
+            webBrowser.Navigate(@"https://www.youtube.com/v/" + id + @"?controls=0&loop=1&autoplay=1&rel=0&playlist=" + id);
         }
 
         public void StopYTVideo()

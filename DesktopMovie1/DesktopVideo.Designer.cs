@@ -88,6 +88,7 @@
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(276, 20);
             this.textBox1.TabIndex = 4;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -133,6 +134,7 @@
             this.Controls.Add(this.button1);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
+            this.MaximizeBox = false;
             this.Name = "DesktopVideo";
             this.Text = "DesktopVideo";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DesktopVideo_FormClosed);

@@ -21,6 +21,7 @@ namespace DesktopMovie1
         public DesktopVideo()
         {
             InitializeComponent();
+            FormBorderStyle = FormBorderStyle.FixedSingle;
         }
 
         private void DesktopVideo_FormClosed(object sender, FormClosedEventArgs e)
@@ -77,6 +78,10 @@ namespace DesktopMovie1
                     f1.StopYTVideo();
                     f1.StartLocalVideo(textBox1.Text);
                 }
+                else
+                {
+                    textBox1.ForeColor = Color.Red;
+                }
             }
         }
 
@@ -84,6 +89,11 @@ namespace DesktopMovie1
         {
             f1.StopLocalVideo();
             f1.StopYTVideo();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            textBox1.ForeColor = Color.Black;
         }
     }
 }
