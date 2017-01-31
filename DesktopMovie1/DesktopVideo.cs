@@ -22,6 +22,13 @@ namespace DesktopMovie1
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
+            Resize += DesktopVideo_Resize;
+        }
+
+        void DesktopVideo_Resize(object sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+                Hide();
         }
 
         private void DesktopVideo_FormClosed(object sender, FormClosedEventArgs e)
@@ -96,28 +103,21 @@ namespace DesktopMovie1
             textBox1.ForeColor = Color.Black;
         }
 
-        private void DesktopVideo_ResizeEnd(object sender, EventArgs e)
-        {
-            
-        }
+        private void DesktopVideo_ResizeEnd(object sender, EventArgs e) { }
 
         private void notifyIcon1_DoubleClick(object sender, EventArgs e)
         {
+            Show();
             WindowState = FormWindowState.Normal;
         }
 
-        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
-        {
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e) { }
 
-        }
-
-        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
-        {
-            
-        }
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e) { }
 
         private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            Show();
             WindowState = FormWindowState.Normal;
         }
 
@@ -125,5 +125,7 @@ namespace DesktopMovie1
         {
             Close();
         }
+
+        private void DesktopVideo_Load(object sender, EventArgs e) { }
     }
 }
