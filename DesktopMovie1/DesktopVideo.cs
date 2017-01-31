@@ -95,5 +95,35 @@ namespace DesktopMovie1
         {
             textBox1.ForeColor = Color.Black;
         }
+
+        private void DesktopVideo_ResizeEnd(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void notifyIcon1_DoubleClick(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+
+        }
+
+        private void contextMenuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+            
+        }
+
+        private void restoreToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+        }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+        }
     }
 }

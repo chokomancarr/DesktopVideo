@@ -13,3 +13,18 @@ C:\Users\Pua Kai\documents\visual studio 2013\Projects\DesktopMovie1\DesktopMovi
 C:\Users\Pua Kai\documents\visual studio 2013\Projects\DesktopMovie1\DesktopMovie1\obj\Release\DesktopMovie1.exe
 C:\Users\Pua Kai\documents\visual studio 2013\Projects\DesktopMovie1\DesktopMovie1\obj\Release\DesktopMovie1.pdb
 C:\Users\Pua Kai\documents\visual studio 2013\Projects\DesktopMovie1\DesktopMovie1\obj\Release\DesktopMovie1.csprojResolveAssemblyReference.cache
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\bin\Release\DesktopMovie1.exe.config
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\Interop.WMPLib.dll
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\AxInterop.WMPLib.dll
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.csproj.ResolveComReference.cache
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.exe
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.pdb
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\bin\Release\DesktopMovie1.exe
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\bin\Release\DesktopMovie1.pdb
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\bin\Release\Interop.WMPLib.dll
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\bin\Release\AxInterop.WMPLib.dll
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.csprojResolveAssemblyReference.cache
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.DesktopVideo.resources
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.Form1.resources
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.Properties.Resources.resources
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.csproj.GenerateResource.Cache
