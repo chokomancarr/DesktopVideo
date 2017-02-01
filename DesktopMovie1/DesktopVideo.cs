@@ -25,6 +25,39 @@ namespace DesktopMovie1
             Resize += DesktopVideo_Resize;
         }
 
+        public void ReadDefault()
+        {
+            string path = AppDomain.CurrentDomain.BaseDirectory + "startup.txt";
+            Debug.WriteLine("reading " + path);
+            if (File.Exists(path))
+            {
+                string dat = File.ReadAllText(path);
+                string[] dat2 = dat.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+                int i = 0;
+                foreach (string s in dat2)
+                {
+                    if (s.Length > 5 && s.StartsWith("type="))
+                    {
+                        if (s[5] == '0')
+                            isWeb = false;
+                        else if (s[5] == '1')
+                            isWeb = true;
+
+                        i++;
+                    }
+                    else if (s.Length > 4 && s.StartsWith("src="))
+                    {
+                        textBox1.Text = s.Substring(4, s.Length - 4);
+                        i++;
+                    }
+                }
+                if (i > 1)
+                {
+                    button1_Click(null, new EventArgs());
+                }
+            }
+        }
+
         void DesktopVideo_Resize(object sender, EventArgs e)
         {
             if (WindowState == FormWindowState.Minimized)
@@ -65,6 +98,7 @@ namespace DesktopMovie1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            Debug.WriteLine("starting...");
             if (isWeb)
             {
                 int i = textBox1.Text.IndexOf("watch?v=");

@@ -90,16 +90,28 @@ namespace DesktopMovie1
                 DesktopVideo editor = new DesktopVideo();
                 editor.f1 = this;
                 editor.Show();
+                editor.ReadDefault();
                 
                 //ryuu ga waga teki wo kurau
                 //StartYTVideo("p1SJ5vBXLI8");
                 //gab kawaii
                 //StartYTVideo("doJSO9bQkng");
+
+                FormClosed += Form1_FormClosed;
             }
             else
             {
                 Close();
             }
+        }
+
+        void Form1_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            //restore wallpaper
+            string cmd = AppDomain.CurrentDomain.BaseDirectory + "restore.bat";
+            Process process = new Process();
+            process.StartInfo.FileName = cmd;
+            process.Start();
         }
 
         public void StartLocalVideo(string path)
@@ -137,6 +149,11 @@ namespace DesktopMovie1
             webBrowser.ScrollBarsEnabled = false;
             webBrowser.AllowNavigation = false;
             Controls.Add(webBrowser);
+        }
+
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
     }
 }
