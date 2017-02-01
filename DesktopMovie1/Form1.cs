@@ -83,7 +83,7 @@ namespace DesktopMovie1
 
             if (w != IntPtr.Zero)
             {
-                WindowState = FormWindowState.Maximized;
+                //WindowState = FormWindowState.Maximized;
                 SetWindowLong(Handle, -16, GetWindowLong(Handle, -16) | 0x40000000);
                 SetParent(Handle, workerw);
 
@@ -107,11 +107,15 @@ namespace DesktopMovie1
 
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            //restore wallpaper
+            /*restore wallpaper
             string cmd = AppDomain.CurrentDomain.BaseDirectory + "restore.bat";
-            Process process = new Process();
-            process.StartInfo.FileName = cmd;
-            process.Start();
+            if (System.IO.File.Exists(cmd))
+            {
+                Process process = new Process();
+                process.StartInfo.FileName = cmd;
+                process.Start();
+            }
+             * */
         }
 
         public void StartLocalVideo(string path)

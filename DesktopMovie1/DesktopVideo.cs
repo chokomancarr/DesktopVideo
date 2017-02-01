@@ -23,10 +23,17 @@ namespace DesktopMovie1
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.FixedSingle;
             Resize += DesktopVideo_Resize;
+            int i = 0;
+            foreach (Screen sc in Screen.AllScreens)
+            {
+                comboBox1.Items.Add("Screen" + ++i);
+            }
         }
 
         public void ReadDefault()
         {
+            comboBox1.SelectedIndex = 0;
+
             string path = AppDomain.CurrentDomain.BaseDirectory + "startup.txt";
             Debug.WriteLine("reading " + path);
             if (File.Exists(path))
@@ -171,6 +178,13 @@ namespace DesktopMovie1
                 textBox1.Text = openFileDialog1.FileName;
                 textBox1.ForeColor = Color.Black;
             }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Rectangle r = Screen.AllScreens[comboBox1.SelectedIndex].Bounds;
+            f1.Location = new Point(r.X, r.Y);
+            f1.Size = new Size(r.Width, r.Height);
         }
     }
 }
