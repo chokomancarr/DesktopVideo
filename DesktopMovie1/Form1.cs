@@ -123,12 +123,14 @@ namespace DesktopMovie1
             mediaPlayer.URL = path;
             mediaPlayer.Ctlcontrols.play();
             mediaPlayer.settings.setMode("loop", true);
+            timer1.Enabled = true;
         }
 
         public void StopLocalVideo()
         {
             if (mediaPlayer.playState == WMPLib.WMPPlayState.wmppsPlaying)
                 mediaPlayer.Ctlcontrols.pause();
+            timer1.Enabled = false;
         }
 
         public void StartYTVideo(string id)
@@ -151,9 +153,19 @@ namespace DesktopMovie1
             Controls.Add(webBrowser);
         }
 
-        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) { }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            if (timer1.Interval == 500 && (mediaPlayer.currentMedia.duration - mediaPlayer.Ctlcontrols.currentPosition) < 1)
+            {
+                timer1.Interval = 100;
+            }
+            else if ((mediaPlayer.currentMedia.duration - mediaPlayer.Ctlcontrols.currentPosition) < 0.1)
+            {
+                mediaPlayer.Ctlcontrols.currentPosition = 0;
+                timer1.Interval = 500;
+            }
         }
     }
 }
