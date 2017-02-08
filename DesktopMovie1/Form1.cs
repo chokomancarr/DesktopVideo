@@ -38,6 +38,9 @@ namespace DesktopMovie1
         [DllImport("user32.dll")]
         private static extern bool EnumWindows(EnumWindowsProc enumProc, IntPtr lParam);
 
+        [DllImport("user32.dll", SetLastError = true)]
+        static extern bool SystemParametersInfo(int uiAction, int uiParam, IntPtr pvParam, int fWinIni);
+
         [Flags]
         public enum SendMessageTimeoutFlags : uint
         {
@@ -91,11 +94,6 @@ namespace DesktopMovie1
                 editor.f1 = this;
                 editor.Show();
                 editor.ReadDefault();
-                
-                //ryuu ga waga teki wo kurau
-                //StartYTVideo("p1SJ5vBXLI8");
-                //gab kawaii
-                //StartYTVideo("doJSO9bQkng");
 
                 FormClosed += Form1_FormClosed;
             }
@@ -107,15 +105,7 @@ namespace DesktopMovie1
 
         void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            /*restore wallpaper
-            string cmd = AppDomain.CurrentDomain.BaseDirectory + "restore.bat";
-            if (System.IO.File.Exists(cmd))
-            {
-                Process process = new Process();
-                process.StartInfo.FileName = cmd;
-                process.Start();
-            }
-             * */
+            SystemParametersInfo(20, 0, IntPtr.Zero, 2);
         }
 
         public void StartLocalVideo(string path)
