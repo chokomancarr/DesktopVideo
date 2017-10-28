@@ -57,6 +57,8 @@ namespace DesktopMovie1
         // Delegate to filter which windows to include 
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
+        bool isnico = false;
+
         public Form1()
         {
             InitializeComponent();
@@ -132,8 +134,33 @@ namespace DesktopMovie1
             Debug.WriteLine("Starting YT @ " + id);
             StopLocalVideo();
             webBrowser.Visible = true;
+            webBrowser.DocumentCompleted += WebBrowser_DocumentCompleted;
             mediaPlayer.Visible = false;
-            webBrowser.Navigate(@"https://www.youtube.com/v/" + id + @"?controls=0&loop=1&autoplay=1&rel=0&playlist=" + id);
+            webBrowser.Navigate(@"https://www.youtube.com/embed/" + id + @"?controls=0&loop=1&autoplay=1&rel=0&playlist=" + id);
+            isnico = false;
+        }
+
+        public void StartNCVideo(string id)
+        {
+            Debug.WriteLine("Starting NC @ " + id);
+            StopLocalVideo();
+            webBrowser.Visible = true;
+            webBrowser.DocumentCompleted += WebBrowser_DocumentCompleted;
+            mediaPlayer.Visible = false;
+            webBrowser.Navigate(@"http://embed.nicovideo.jp/watch/" + id);
+            isnico = true;
+        }
+
+        private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            if (isnico)
+            {
+                foreach (HtmlElement aa in webBrowser.Document.GetElementsByTagName("button"))
+                {
+                    if (aa.GetAttribute("className") == "f1sez4t0")
+                        aa.InvokeMember("click");
+                }
+            }
         }
 
         public void StopYTVideo()
@@ -147,7 +174,9 @@ namespace DesktopMovie1
             Controls.Add(webBrowser);
         }
 
-        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) { }
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
+            
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {

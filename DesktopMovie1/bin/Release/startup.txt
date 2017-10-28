@@ -1,2 +1,2 @@
 type=0
-src=D:\\lambo.jpg
+src=D:\space.mp4

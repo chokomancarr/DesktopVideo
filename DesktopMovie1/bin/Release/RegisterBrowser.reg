@@ -1,0 +1,6 @@
+Windows Registry Editor Version 5.00
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Internet Explorer\Main\FeatureControl\FEATURE_BROWSER_EMULATION]
+"DesktopMovie1.exe"=dword:00002af8
+"DesktopMovie1.vshost.exe"=dword:00002af8
+

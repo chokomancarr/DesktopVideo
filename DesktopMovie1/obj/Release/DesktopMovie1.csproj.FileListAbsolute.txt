@@ -43,3 +43,4 @@ C:\Users\asus\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMov
 C:\Users\asus\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.Form1.resources
 C:\Users\asus\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.Properties.Resources.resources
 C:\Users\asus\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.csproj.GenerateResource.Cache
+C:\Users\Pua Kai\Documents\GitHub\DesktopVideo\DesktopMovie1\obj\Release\DesktopMovie1.Form2.resources
