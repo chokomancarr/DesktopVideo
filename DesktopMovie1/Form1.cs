@@ -60,7 +60,6 @@ namespace DesktopMovie1
         bool isnico = false;
 
         HtmlElement nicoplay;
-
         public Form1()
         {
             InitializeComponent();
@@ -165,9 +164,9 @@ namespace DesktopMovie1
                         nicoplay = aa;
                     }
                 }
+				timer1.Enabled = true;
+				timer1.Interval = 500;
             }
-            timer1.Enabled = true;
-            timer1.Interval = 500;
         }
 
         public void StopYTVideo()
