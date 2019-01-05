@@ -60,7 +60,6 @@
             this.webBrowser.TabIndex = 1;
             this.webBrowser.TabStop = false;
             this.webBrowser.WebBrowserShortcutsEnabled = false;
-            this.webBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webBrowser_DocumentCompleted);
             // 
             // timer1
             // 

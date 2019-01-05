@@ -1,0 +1,2 @@
+type=0
+src=D:\space.mp4

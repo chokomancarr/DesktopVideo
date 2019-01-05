@@ -57,6 +57,10 @@ namespace DesktopMovie1
         // Delegate to filter which windows to include 
         public delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
 
+        bool isnico = false;
+
+        HtmlElement nicoplay;
+
         public Form1()
         {
             InitializeComponent();
@@ -118,6 +122,7 @@ namespace DesktopMovie1
             mediaPlayer.Ctlcontrols.play();
             mediaPlayer.settings.setMode("loop", true);
             timer1.Enabled = true;
+            timer1.Interval = 500;
         }
 
         public void StopLocalVideo()
@@ -132,8 +137,37 @@ namespace DesktopMovie1
             Debug.WriteLine("Starting YT @ " + id);
             StopLocalVideo();
             webBrowser.Visible = true;
+            webBrowser.DocumentCompleted += WebBrowser_DocumentCompleted;
             mediaPlayer.Visible = false;
-            webBrowser.Navigate(@"https://www.youtube.com/v/" + id + @"?controls=0&loop=1&autoplay=1&rel=0&playlist=" + id);
+            webBrowser.Navigate(@"https://www.youtube.com/embed/" + id + @"?controls=0&loop=1&autoplay=1&rel=0&playlist=" + id);
+            isnico = false;
+        }
+
+        public void StartNCVideo(string id)
+        {
+            Debug.WriteLine("Starting NC @ " + id);
+            StopLocalVideo();
+            webBrowser.Visible = true;
+            webBrowser.DocumentCompleted += WebBrowser_DocumentCompleted;
+            mediaPlayer.Visible = false;
+            webBrowser.Navigate(@"http://embed.nicovideo.jp/watch/" + id);
+            isnico = true;
+        }
+
+        private void WebBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            if (isnico)
+            {
+                foreach (HtmlElement aa in webBrowser.Document.GetElementsByTagName("button"))
+                {
+                    if (aa.GetAttribute("className") == "f1l5qaxt")
+                    {
+                        nicoplay = aa;
+                    }
+                }
+            }
+            timer1.Enabled = true;
+            timer1.Interval = 500;
         }
 
         public void StopYTVideo()
@@ -145,20 +179,32 @@ namespace DesktopMovie1
             webBrowser.ScrollBarsEnabled = false;
             webBrowser.AllowNavigation = false;
             Controls.Add(webBrowser);
+            timer1.Enabled = false;
         }
 
-        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) { }
+        private void webBrowser_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e) {
+            
+        }
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            if (timer1.Interval == 500 && (mediaPlayer.currentMedia.duration - mediaPlayer.Ctlcontrols.currentPosition) < 1)
+            if (isnico)
             {
-                timer1.Interval = 100;
+                var tt = nicoplay.GetAttribute("data-title");
+                if (tt != "Pause")
+                    nicoplay.InvokeMember("click");
             }
-            else if ((mediaPlayer.currentMedia.duration - mediaPlayer.Ctlcontrols.currentPosition) < 0.1)
+            else
             {
-                mediaPlayer.Ctlcontrols.currentPosition = 0;
-                timer1.Interval = 500;
+                if (timer1.Interval == 500 && (mediaPlayer.currentMedia.duration - mediaPlayer.Ctlcontrols.currentPosition) < 1)
+                {
+                    timer1.Interval = 100;
+                }
+                else if ((mediaPlayer.currentMedia.duration - mediaPlayer.Ctlcontrols.currentPosition) < 0.1)
+                {
+                    mediaPlayer.Ctlcontrols.currentPosition = 0;
+                    timer1.Interval = 500;
+                }
             }
         }
     }

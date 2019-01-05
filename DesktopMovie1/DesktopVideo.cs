@@ -15,6 +15,7 @@ namespace DesktopMovie1
     public partial class DesktopVideo : Form
     {
         public Form1 f1;
+        public Form2 f2;
         public bool playing;
         public bool isWeb = false;
 
@@ -108,16 +109,33 @@ namespace DesktopMovie1
             Debug.WriteLine("starting...");
             if (isWeb)
             {
-                int i = textBox1.Text.IndexOf("watch?v=");
-                int i2 = textBox1.Text.IndexOf('&');
-                if (i == -1)
-                    textBox1.ForeColor = Color.Red;
-                else
+                if (textBox1.Text.StartsWith("www.youtube.com") || textBox1.Text.StartsWith("https://www.youtube.com"))
                 {
-                    f1.StopLocalVideo();
-                    f1.StopYTVideo();
-                    f1.StartYTVideo(textBox1.Text.Substring(i + 8, ((i2 > i) ? i2 : textBox1.Text.Length) - i - 8));
+                    int i = textBox1.Text.IndexOf("watch?v=");
+                    int i2 = textBox1.Text.IndexOf('&');
+                    if (i == -1)
+                        textBox1.ForeColor = Color.Red;
+                    else
+                    {
+                        f1.StopLocalVideo();
+                        f1.StopYTVideo();
+                        f1.StartYTVideo(textBox1.Text.Substring(i + 8, ((i2 > i) ? i2 : textBox1.Text.Length) - i - 8));
+                    }
                 }
+                else if (textBox1.Text.Contains("www.nicovideo.jp") || textBox1.Text.Contains("http://www.nicovideo.jp"))
+                {
+                    int i = textBox1.Text.IndexOf("/watch/");
+                    if (i == -1)
+                        textBox1.ForeColor = Color.Red;
+                    else
+                    {
+                        f1.StopLocalVideo();
+                        f1.StopYTVideo();
+                        f1.StartNCVideo(textBox1.Text.Substring(i + 7, textBox1.Text.Length - i - 7));
+                    }
+                }
+                else
+                    textBox1.ForeColor = Color.Red;
             }
             else
             {
@@ -185,6 +203,12 @@ namespace DesktopMovie1
             Rectangle r = Screen.AllScreens[comboBox1.SelectedIndex].Bounds;
             f1.Location = new Point(r.X, r.Y);
             f1.Size = new Size(r.Width, r.Height);
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            f2 = new Form2();
+            f2.ShowDialog();
         }
     }
 }

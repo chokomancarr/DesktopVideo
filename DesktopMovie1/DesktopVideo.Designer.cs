@@ -45,6 +45,7 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.browseButton = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,10 +66,10 @@
             this.radioButton2.AutoSize = true;
             this.radioButton2.Location = new System.Drawing.Point(12, 35);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(95, 17);
+            this.radioButton2.Size = new System.Drawing.Size(142, 17);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
-            this.radioButton2.Text = "Youtube Video";
+            this.radioButton2.Text = "Youtube/Niconico Video";
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
@@ -94,7 +95,7 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(12, 91);
+            this.textBox1.Location = new System.Drawing.Point(12, 105);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(276, 20);
             this.textBox1.TabIndex = 4;
@@ -103,7 +104,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 67);
+            this.label1.Location = new System.Drawing.Point(12, 81);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 13);
             this.label1.TabIndex = 5;
@@ -113,9 +114,9 @@
             // 
             this.localDesc.AutoSize = true;
             this.localDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.localDesc.Location = new System.Drawing.Point(9, 124);
+            this.localDesc.Location = new System.Drawing.Point(9, 138);
             this.localDesc.Name = "localDesc";
-            this.localDesc.Size = new System.Drawing.Size(241, 13);
+            this.localDesc.Size = new System.Drawing.Size(243, 13);
             this.localDesc.TabIndex = 6;
             this.localDesc.Text = "Enter Path to Video file (Example: D:\\\\Video.mp4)";
             // 
@@ -123,12 +124,12 @@
             // 
             this.ytDesc.AutoSize = true;
             this.ytDesc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ytDesc.Location = new System.Drawing.Point(9, 137);
+            this.ytDesc.Location = new System.Drawing.Point(9, 151);
             this.ytDesc.Name = "ytDesc";
-            this.ytDesc.Size = new System.Drawing.Size(277, 39);
+            this.ytDesc.Size = new System.Drawing.Size(271, 39);
             this.ytDesc.TabIndex = 7;
-            this.ytDesc.Text = "Enter URL of video file \r\n(Example: https://www.youtube.com/watch?v=ABC123)\r\nDo N" +
-    "OT use shortened URLs! (Example: YouTu.be/asdf)";
+            this.ytDesc.Text = "Enter URL of video file \r\n(Example: https://www.youtube.com/watch?v=ABC123\r\n OR: " +
+    "http://www.nicovideo.jp/watch/ABC123)\r\n";
             this.ytDesc.Visible = false;
             // 
             // notifyIcon1
@@ -170,7 +171,7 @@
             // 
             // browseButton
             // 
-            this.browseButton.Location = new System.Drawing.Point(181, 62);
+            this.browseButton.Location = new System.Drawing.Point(181, 76);
             this.browseButton.Name = "browseButton";
             this.browseButton.Size = new System.Drawing.Size(107, 23);
             this.browseButton.TabIndex = 8;
@@ -188,11 +189,23 @@
             this.comboBox1.TabIndex = 9;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.Location = new System.Drawing.Point(136, 258);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(152, 13);
+            this.linkLabel1.TabIndex = 10;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Are online videos not working?";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // DesktopVideo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(300, 261);
+            this.ClientSize = new System.Drawing.Size(300, 280);
+            this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.browseButton);
             this.Controls.Add(this.ytDesc);
@@ -206,7 +219,6 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "DesktopVideo";
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
             this.Text = "DesktopVideo";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DesktopVideo_FormClosed);
@@ -235,6 +247,6 @@
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.Button browseButton;
         private System.Windows.Forms.ComboBox comboBox1;
-
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
